@@ -1,5 +1,5 @@
 # Module Buster
-Thank you for your interest in SCYTHE Module Buster 1000.
+Thank you for your interest in SCYTHE Module Buster 1100.
 
 Module Buster is a wizard that guides you through the module creation process. You can also use Module Buster to test your module and package the module for use in the Marketplace.
 
@@ -13,20 +13,26 @@ This readme assists with the process of developing a module for SCYTHE. The Modu
 
 We are huge fans of a certain series.
 
-# Prerequisites for Windows
+# Prerequisites for Running Module Buster
+The following are needed to run Module Buster on a given OS. If you experience issues with Module Buster functionality, verifying that these prerequisites have been met is an important first troubleshooting step. 
+## Prerequisites for Windows
 1. Python 3.8.2
+2. The [jsonschema](https://pypi.org/project/jsonschema/ "jsonschema") Python package.
+2. The [pycryptodome](https://pypi.org/project/pycryptodome/ "pycryptodome") Python package 
+	1. If the Crypto package is already installed, uninstall it before installing pycryptodome.
 1. Visual Studio 2019: used to compile and package the native module, and also to package the Python module.
 1. To test with SCYTHE, ensure SCYTHE is running in Developer mode and also that the Marketplace key-pair has been setup.
 
-
-# Prerequisites for macOS
+## Prerequisites for macOS
 1. Python 3.8.2
+2. The [jsonschema](https://pypi.org/project/jsonschema/ "jsonschema") Python package.
 2. The [pycryptodome](https://pypi.org/project/pycryptodome/ "pycryptodome") Python package 
 	1. If the Crypto package is already installed, uninstall it before installing pycryptodome.
 2. To test with SCYTHE, ensure SCYTHE is running in Developer mode and also that the Marketplace key-pair has been setup.
 
-# Prerequisites for Debian Linux
+## Prerequisites for Debian Linux
 1. Python 3.8.2
+2. The [jsonschema](https://pypi.org/project/jsonschema/ "jsonschema") Python package.
 2. The [pycryptodome](https://pypi.org/project/pycryptodome/ "pycryptodome") Python package 
 	1. If the Crypto package is already installed, uninstall it before installing pycryptodome.
 2. To run `make` in order to build modules you'll need the [gcc-multilib](https://packages.ubuntu.com/xenial/gcc-multilib "gcc-multilib") package
@@ -154,6 +160,12 @@ At this point you should see a results screen displaying your validation results
 If there are any problems during validation you'll see a screen with a number of errors. In the example below the python module's `package.zip` couldn't be loaded, so validation could not run.
 
 ![Results Screen: Module Validation Failure ](images/module_validation_fail_comp.png) 
+
+Additionally you could see an error that looks something like this:
+
+![Results Screen: Module Validation Failure JSONSCHEMA Missing](images/module_validation_fail_2.png) 
+
+This means that you need to install the [jsonschema](https://pypi.org/project/jsonschema/ "jsonschema") Python package as mentioned in the **Prerequisites** section.
 
 If you encounter validation errors you may want to save the validation results for quick reference when debugging your module; to do this just click _Save Results_. Additionally, if you need to make configuration changes or correct input errors, you can  re-run validation by clicking _Validate This Module Again_, which will take you back to the previous screen while preserving all your selections and inputs.
 
